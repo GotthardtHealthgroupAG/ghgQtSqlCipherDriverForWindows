@@ -21,7 +21,7 @@ set (SQLCipher_LIBRARY_COMPONENTS sqlite3 libeay32)
 
 add_definitions(-DQT_PLUGIN)
 
-find_package(Qt5 5.9 REQUIRED COMPONENTS Core Sql)
+find_package(Qt5 5.9.6 REQUIRED COMPONENTS Core Sql)
 
 foreach (SQLCipher_LIBRARY_COMPONENT ${SQLCipher_LIBRARY_COMPONENTS})
     find_library (${SQLCipher_LIBRARY_COMPONENT}_LIB
@@ -33,7 +33,7 @@ foreach (SQLCipher_LIBRARY_COMPONENT ${SQLCipher_LIBRARY_COMPONENTS})
     endif ()
 endforeach ()
 
-# Tell cmake to put the plugin dll to sqldrivers
+# Tell cmake to put the plugin dll in sqldrivers directory
 set (CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/sqldrivers/${CMAKE_BUILD_TYPE})
 
 add_library(${PROJECT_NAME} MODULE
